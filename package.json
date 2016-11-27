@@ -1,0 +1,16 @@
+{
+  "name": "mmwr-week",
+  "version": "1.0.0",
+  "description": "MMWR week conversion tool",
+  "main": "./lib/index.js",
+  "author": "Abhinav Tushar <abhinav.tushar.vs@gmail.com>",
+  "license": "GPL-3.0",
+  "scripts": {
+    "build": "babel src -d lib",
+    "prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-latest": "^6.16.0"
+  }
+}
