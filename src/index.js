@@ -8,7 +8,7 @@ chai.should()
 /**
  * Return start date of the year using MMWR week rules
  */
-export const startDateOfYear = year => {
+const startDateOfYear = year => {
   year.should.be.a('number')
 
   let janOne = moment(year + '0101')
