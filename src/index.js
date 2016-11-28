@@ -46,5 +46,5 @@ export const DateToMMWRWeek = (date = moment()) => {
  * Return the number of MMWR weeks in a year
  */
 export const MMWRWeeksInYear = year => {
-  return null
+  return DateToMMWRWeek(MMWRWeekToDate(year, 53)).year === year ? 53 : 52
 }
