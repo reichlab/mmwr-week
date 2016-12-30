@@ -32,6 +32,33 @@ export const MMWRWeekToDate = (year, week, day = 0) => {
 }
 
 /**
+ * Return MMWR week with given week delta
+ */
+export const MMWRWeekWithDelta = (year, week, delta) => {
+  year.should.be.a('number')
+  week.should.be.a('number')
+  delta.should.be.a('number')
+  week.should.be.within(1, 53)
+  delta.should.be.within(-52, 52) // Don't care after that. FIXME
+
+  let out = week + delta
+
+  if (delta > 0) {
+    let maxWeek = MMWRWeeksInYear(year)
+    return {
+      year: out > maxWeek ? year + 1 : year,
+      week: out > maxWeek ? out - maxWeek : out
+    }
+  } else {
+    let maxWeek = MMWRWeeksInYear(year - 1)
+    return {
+      year: out < 1 ? year - 1 : year,
+      week: out < 1 ? maxWeek + out : out
+    }
+  }
+}
+
+/**
  * Convert given moment date (default: now) to MMWRWeek
  */
 export const DateToMMWRWeek = (date = moment()) => {

@@ -15,4 +15,7 @@ Tiny port of [MMWRWeek](https://github.com/jarad/MMWRweek) to JavaScript.
 
 // Number of MMWR weeks in a year
 → mmwr.MMWRWeeksInYear(2016) // 52
+
+// Week delta
+→ mmwr.MMWRWeekWithDelta(2016, 3, -4) // { year: 2015, week: 51 }
 ```
