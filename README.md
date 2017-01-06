@@ -2,6 +2,10 @@
 
 Tiny port of [MMWRWeek](https://github.com/jarad/MMWRweek) to JavaScript.
 
+```shell
+npm install mmwr-week
+```
+
 ```js
 → const mmwr = require('mmwr-week')
 → const moment = require('moment')

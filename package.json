@@ -1,10 +1,14 @@
 {
   "name": "mmwr-week",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MMWR week conversion tool",
   "main": "./lib/index.js",
   "author": "Abhinav Tushar <abhinav.tushar.vs@gmail.com>",
   "license": "MIT",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/reichlab/mmwr-week.git"
+  },
   "scripts": {
     "build": "babel src -d lib",
     "prepublish": "npm run build"
