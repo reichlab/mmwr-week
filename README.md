@@ -1,4 +1,4 @@
-# mmwr-week [![npm](https://img.shields.io/npm/v/mmwr-week.svg)]()
+# mmwr-week [![npm](https://img.shields.io/npm/v/mmwr-week.svg)](https://www.npmjs.com/package/mmwr-week)
 
 Tiny port of [MMWRWeek](https://github.com/jarad/MMWRweek) to JavaScript.
 
