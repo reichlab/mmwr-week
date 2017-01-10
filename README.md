@@ -1,6 +1,7 @@
 # mmwr-week [![npm](https://img.shields.io/npm/v/mmwr-week.svg)](https://www.npmjs.com/package/mmwr-week)
 
 Tiny port of [MMWRWeek](https://github.com/jarad/MMWRweek) to JavaScript.
+Weekdays go from Sunday (1) to Saturday (7).
 
 ```shell
 npm install mmwr-week
