@@ -17,17 +17,17 @@ const startDateOfYear = year => {
 }
 
 /**
- * Return date for Sunday (default) of given week
+ * Return date for given week (starts at Sunday)
  */
-export const MMWRWeekToDate = (year, week, day = 0) => {
+export const MMWRWeekToDate = (year, week, day = 1) => {
   year.should.be.a('number')
   week.should.be.a('number')
   day.should.be.a('number')
   week.should.be.within(1, 53)
-  day.should.be.within(0, 6)
+  day.should.be.within(1, 7)
 
   let dayOne = startDateOfYear(year)
-  let diff = 7 * (week - 1) + day
+  let diff = 7 * (week - 1) + (day - 1)
   return dayOne.add(diff, 'days')
 }
 
@@ -78,7 +78,7 @@ export const DateToMMWRWeek = (date = moment()) => {
   return {
     year: moment(startDate).add(7, 'days').year(),
     week: Math.floor(date.diff(startDate, 'days') / 7) + 1,
-    day: date.isoWeekday()
+    day: (date.isoWeekday() % 7) + 1
   }
 }
 
