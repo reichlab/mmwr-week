@@ -1,6 +1,6 @@
 {
   "name": "mmwr-week",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "MMWR week conversion tool",
   "main": "./lib/index.js",
   "author": "Abhinav Tushar <abhinav.tushar.vs@gmail.com>",
