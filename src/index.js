@@ -12,7 +12,7 @@ const startDateOfYear = year => {
   year.should.be.a('number')
 
   let janOne = moment(year + '0101')
-  let diff = 7 * (janOne.weekday() > 3) - janOne.weekday()
+  let diff = 7 * (janOne.isoWeekday() > 3) - janOne.isoWeekday()
   return janOne.add(diff, 'days')
 }
 
@@ -78,7 +78,7 @@ export const DateToMMWRWeek = (date = moment()) => {
   return {
     year: moment(startDate).add(7, 'days').year(),
     week: Math.floor(date.diff(startDate, 'days') / 7) + 1,
-    day: date.weekday()
+    day: date.isoWeekday()
   }
 }
 
