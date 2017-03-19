@@ -90,3 +90,24 @@ export const MMWRWeeksInYear = year => {
 
   return DateToMMWRWeek(MMWRWeekToDate(year, 53)).year === year ? 53 : 52
 }
+
+/**
+ * Return number of weeks between given MMWR weeks
+ */
+export const MMWRWeekDiff = (yearLow, weekLow, yearHigh, weekHigh) => {
+  yearHigh.should.be.at.least(yearLow)
+
+  if (yearLow === yearHigh) {
+    return weekHigh - weekLow
+  } else {
+    let diff = weekHigh + (MMWRWeeksInYear(yearLow) - weekLow)
+
+    let low = yearLow + 1
+    while (low < yearHigh) {
+      diff += MMWRWeeksInYear(low)
+      low++
+    }
+    return diff
+  }
+}
+

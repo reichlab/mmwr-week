@@ -10,7 +10,7 @@
     "url": "https://github.com/reichlab/mmwr-week.git"
   },
   "scripts": {
-    "build": "babel src -d lib",
+    "build": "babel index.js -d lib",
     "prepublish": "npm run build"
   },
   "devDependencies": {
