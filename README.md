@@ -11,16 +11,32 @@ npm install mmwr-week
 → const mmwr = require('mmwr-week')
 → const moment = require('moment')
 
+// Create MMWRDate object
+→ let mdate = new mmwr.MMWRDate(2016, 48)
+// MMWRDate { year: 2016, week: 48, day: undefined }
 
-// MMWR week to moment object
-→ mmwr.MMWRWeekToDate(2016, 48) // moment("2016-11-27T00:00:00.000") 
+// First day of year according to MMWRDate
+→ mdate.startMomentDate
+// moment("2016-01-03T00:00:00.000")
 
-// Moment date to MMWR week
-→ mmwr.DateToMMWRWeek(moment('2016-11-27')) // { year: 2016, week: 48, day: 1 }
+// Convert to moment object
+→ mdate.toMomentDate()
+// moment("2016-11-27T00:00:00.000")
+
+// Moment date to MMWRDate
+→ mdate.fromMomentDate(moment('2016-12-27'))
+// MMWRDate { year: 2016, week: 52, day: 3 }
 
 // Number of MMWR weeks in a year
-→ mmwr.MMWRWeeksInYear(2016) // 52
+→ mdate.nWeeks
+// 52
 
-// Week delta
-→ mmwr.MMWRWeekWithDelta(2016, 3, -4) // { year: 2015, week: 51 }
+// Week difference (mdate - odate)
+→ let odate = new mmwr.MMWRDate(2016, 3)
+→ mdate.diffWeek(odate)
+// 49
+
+// Apply week diff
+→ mdate.applyWeekDiff(56)
+// MMWRDate { year: 2018, week: 4, day: 3 }
 ```
