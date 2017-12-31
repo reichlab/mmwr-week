@@ -50,6 +50,22 @@ export class MMWRDate {
   }
 
   /**
+   * Return date in epiweek format
+   */
+  toEpiweek (): number {
+    return this.year * 100 + this.week
+  }
+
+  /**
+   * Set values using epiweek stamp
+   */
+  fromEpiweek (epiweek: number) {
+    this.year = Math.floor(epiweek / 100)
+    this.week = epiweek % 100
+    this.day = 1
+  }
+
+  /**
    * Number of weeks in this MMWR season
    */
   get nWeeks (): number {

@@ -27,6 +27,14 @@ npm install mmwr-week
 → mdate.fromMomentDate(moment('2016-12-27'))
 // MMWRDate { year: 2016, week: 52, day: 3 }
 
+// Convert to epiweek
+→ mdate.toEpiweek()
+// 201652
+
+// Import from epiweek
+mdate.fromEpiweek(201732)
+// MMWRDate { year: 2017, week: 32, day: 1 }
+
 // Number of MMWR weeks in a year
 → mdate.nWeeks
 // 52
