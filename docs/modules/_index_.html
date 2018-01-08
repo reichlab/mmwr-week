@@ -912,10 +912,23 @@ img { max-width: 100%; }
 		<li class=" tsd-kind-class tsd-parent-kind-external-module">
 			<a href="../classes/_index_.mmwrdate.html" class="tsd-kind-icon">MMWRDate</a>
 		</li>
+		<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+			<a href="_index_.html#epiweek" class="tsd-kind-icon">Epiweek</a>
+		</li>
+		<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+			<a href="_index_.html#weeksinyear" class="tsd-kind-icon">weeks<wbr>InYear</a>
+		</li>
 	</ul>
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
+		<section class="tsd-panel tsd-comment">
+			<div class="tsd-comment tsd-typography">
+				<div class="lead">
+					<p>Main module file for mmwr-week</p>
+				</div>
+			</div>
+		</section>
 		<section class="tsd-panel-group tsd-index-group">
 			<h2>Index</h2>
 			<section class="tsd-panel tsd-index-panel">
@@ -926,6 +939,54 @@ img { max-width: 100%; }
 							<li class="tsd-kind-class tsd-parent-kind-external-module"><a href="../classes/_index_.mmwrdate.html" class="tsd-kind-icon">MMWRDate</a></li>
 						</ul>
 					</section>
+					<section class="tsd-index-section ">
+						<h3>Type aliases</h3>
+						<ul class="tsd-index-list">
+							<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_index_.html#epiweek" class="tsd-kind-icon">Epiweek</a></li>
+						</ul>
+					</section>
+					<section class="tsd-index-section tsd-is-not-exported">
+						<h3>Variables</h3>
+						<ul class="tsd-index-list">
+							<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported"><a href="_index_.html#weeksinyear" class="tsd-kind-icon">weeks<wbr>InYear</a></li>
+						</ul>
+					</section>
+				</div>
+			</section>
+		</section>
+		<section class="tsd-panel-group tsd-member-group ">
+			<h2>Type aliases</h2>
+			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
+				<a name="epiweek" class="tsd-anchor"></a>
+				<h3>Epiweek</h3>
+				<div class="tsd-signature tsd-kind-icon">Epiweek<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/reichlab/mmwr-week/blob/06dab35/index.ts#L14">index.ts:14</a></li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Epiweek in format yyyyww</p>
+					</div>
+				</div>
+			</section>
+		</section>
+		<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+			<h2>Variables</h2>
+			<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+				<a name="weeksinyear" class="tsd-anchor"></a>
+				<h3>weeks<wbr>InYear</h3>
+				<div class="tsd-signature tsd-kind-icon">weeks<wbr>InYear<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;memoize(function(year: number): number {let md &#x3D; new MMWRDate(year, 1)let ed &#x3D; new MMWRDate(year, 53)ed.fromMomentDate(ed.toMomentDate())return ed.year &#x3D;&#x3D;&#x3D; md.year ? 53 : 52})</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/reichlab/mmwr-week/blob/06dab35/index.ts#L19">index.ts:19</a></li>
+					</ul>
+				</aside>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Memoized function for number of MMWR weeks in a year</p>
+					</div>
 				</div>
 			</section>
 		</section>

@@ -17,34 +17,34 @@ npm install mmwr-week
 
 // First day of year according to MMWRDate
 → mdate.startMomentDate
-// moment("2016-01-03T00:00:00.000")
+// returns moment("2016-01-03T00:00:00.000")
 
 // Convert to moment object
 → mdate.toMomentDate()
-// moment("2016-11-27T00:00:00.000")
+// returns moment("2016-11-27T00:00:00.000")
 
 // Moment date to MMWRDate
 → mdate.fromMomentDate(moment('2016-12-27'))
-// MMWRDate { year: 2016, week: 52, day: 3 }
+// returns nothing, mutates mdate to MMWRDate { year: 2016, week: 52, day: 3 }
 
 // Convert to epiweek
 → mdate.toEpiweek()
-// 201652
+// returns 201652
 
 // Import from epiweek
-mdate.fromEpiweek(201732)
-// MMWRDate { year: 2017, week: 32, day: 1 }
+→ mdate.fromEpiweek(201732)
+// returns nothing, mutates mdate to MMWRDate { year: 2017, week: 32, day: 1 }
 
 // Number of MMWR weeks in a year
 → mdate.nWeeks
-// 52
+// returns 52
 
 // Week difference (mdate - odate)
 → let odate = new mmwr.MMWRDate(2016, 3)
 → mdate.diffWeek(odate)
-// 49
+// returns 81
 
 // Apply week diff
 → mdate.applyWeekDiff(56)
-// MMWRDate { year: 2018, week: 4, day: 3 }
+// returns nothing, mutates mdate to MMWRDate { year: 2018, week: 36, day: 1 }
 ```

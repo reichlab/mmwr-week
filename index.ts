@@ -6,11 +6,22 @@
  * Doc guard
  */
 import * as moment from 'moment'
+import * as memoize from 'fast-memoize'
 
 /**
  * Epiweek in format yyyyww
  */
 export type Epiweek = number
+
+/**
+ * Memoized function for number of MMWR weeks in a year
+ */
+const weeksInYear = memoize(function(year: number): number {
+  let md = new MMWRDate(year, 1)
+  let ed = new MMWRDate(year, 53)
+  ed.fromMomentDate(ed.toMomentDate())
+  return ed.year === md.year ? 53 : 52
+})
 
 /**
  * Class representing an MMWR date
@@ -21,16 +32,16 @@ export class MMWRDate {
   /**
    * Return year start moment date
    */
-  get startMomentDate () {
+  get startMomentDate (): moment.Moment {
     let janOne: any = moment(this.year + '0101')
     let diff = 7 * +(janOne.isoWeekday() > 3) - janOne.isoWeekday()
     return janOne.add(diff, 'days')
   }
 
   /**
-   * Return a moment representation
+   * Return a moment representation of the date
    */
-  toMomentDate () {
+  toMomentDate (): moment.Moment {
     let dayOne = this.startMomentDate
     let diff = 7 * (this.week - 1)
     if (this.day) {
@@ -40,7 +51,7 @@ export class MMWRDate {
   }
 
   /**
-   * Set values using given moment date
+   * Set values using given moment date. Defaults to now.
    */
   fromMomentDate (date = moment()) {
     let year = date.year()
@@ -70,7 +81,7 @@ export class MMWRDate {
   }
 
   /**
-   * Set values using epiweek stamp
+   * Set values using epiweek
    */
   fromEpiweek (epiweek: Epiweek) {
     this.year = Math.floor(epiweek / 100)
@@ -79,16 +90,15 @@ export class MMWRDate {
   }
 
   /**
-   * Number of weeks in this MMWR season
+   * Return number of weeks in this MMWR season
    */
   get nWeeks (): number {
-    let md = new MMWRDate(this.year, 53)
-    md.fromMomentDate(md.toMomentDate())
-    return md.year === this.year ? 53 : 52
+    return weeksInYear(this.year)
   }
 
   /**
-   * Return number of weeks differing from this
+   * Return number of weeks differing from this.
+   * Equivalent of this - mdate
    */
   diffWeek (mdate: MMWRDate): number {
     if (this.year === mdate.year) {
@@ -116,6 +126,7 @@ export class MMWRDate {
 
   /**
    * Apply week delta
+   * Equivalent of this = this + delta
    */
   applyWeekDiff (delta: number) {
     let newWeek

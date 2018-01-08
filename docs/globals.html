@@ -928,36 +928,36 @@ img { max-width: 100%; }
 
 <span class="hljs-comment">// First day of year according to MMWRDate</span>
 → mdate.startMomentDate
-<span class="hljs-comment">// moment("2016-01-03T00:00:00.000")</span>
+<span class="hljs-comment">// returns moment("2016-01-03T00:00:00.000")</span>
 
 <span class="hljs-comment">// Convert to moment object</span>
 → mdate.toMomentDate()
-<span class="hljs-comment">// moment("2016-11-27T00:00:00.000")</span>
+<span class="hljs-comment">// returns moment("2016-11-27T00:00:00.000")</span>
 
 <span class="hljs-comment">// Moment date to MMWRDate</span>
 → mdate.fromMomentDate(moment(<span class="hljs-string">'2016-12-27'</span>))
-<span class="hljs-comment">// MMWRDate { year: 2016, week: 52, day: 3 }</span>
+<span class="hljs-comment">// returns nothing, mutates mdate to MMWRDate { year: 2016, week: 52, day: 3 }</span>
 
 <span class="hljs-comment">// Convert to epiweek</span>
 → mdate.toEpiweek()
-<span class="hljs-comment">// 201652</span>
+<span class="hljs-comment">// returns 201652</span>
 
 <span class="hljs-comment">// Import from epiweek</span>
-mdate.fromEpiweek(<span class="hljs-number">201732</span>)
-<span class="hljs-comment">// MMWRDate { year: 2017, week: 32, day: 1 }</span>
+→ mdate.fromEpiweek(<span class="hljs-number">201732</span>)
+<span class="hljs-comment">// returns nothing, mutates mdate to MMWRDate { year: 2017, week: 32, day: 1 }</span>
 
 <span class="hljs-comment">// Number of MMWR weeks in a year</span>
 → mdate.nWeeks
-<span class="hljs-comment">// 52</span>
+<span class="hljs-comment">// returns 52</span>
 
 <span class="hljs-comment">// Week difference (mdate - odate)</span>
 → <span class="hljs-keyword">let</span> odate = <span class="hljs-keyword">new</span> mmwr.MMWRDate(<span class="hljs-number">2016</span>, <span class="hljs-number">3</span>)
 → mdate.diffWeek(odate)
-<span class="hljs-comment">// 49</span>
+<span class="hljs-comment">// returns 81</span>
 
 <span class="hljs-comment">// Apply week diff</span>
 → mdate.applyWeekDiff(<span class="hljs-number">56</span>)
-<span class="hljs-comment">// MMWRDate { year: 2018, week: 4, day: 3 }</span>
+<span class="hljs-comment">// returns nothing, mutates mdate to MMWRDate { year: 2018, week: 36, day: 1 }</span>
 </code></pre>
 		</div>
 		<section class="tsd-panel-group tsd-index-group">
