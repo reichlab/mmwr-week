@@ -102,11 +102,12 @@ export class MMWRDate {
         sign = 1
       }
 
-      let diff = ds[1].week + ds[0].nWeeks - ds[0].week
+      let nWeeks = ds[0].nWeeks
+      let diff = ds[1].week + nWeeks - ds[0].week
 
       let begin = ds[0].year + 1
       while (begin < ds[1].year) {
-        diff += ds[0].nWeeks
+        diff += nWeeks
         begin++
       }
       return sign * diff
