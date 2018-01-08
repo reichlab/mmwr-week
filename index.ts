@@ -1,7 +1,20 @@
-// Convert MMWR weeks <--> dates
+/**
+ * Main module file for mmwr-week
+ */
 
+/**
+ * Doc guard
+ */
 import * as moment from 'moment'
 
+/**
+ * Epiweek in format yyyyww
+ */
+export type Epiweek = number
+
+/**
+ * Class representing an MMWR date
+ */
 export class MMWRDate {
   constructor (public year: number, public week?: number, public day?: number) {}
 
@@ -52,14 +65,14 @@ export class MMWRDate {
   /**
    * Return date in epiweek format
    */
-  toEpiweek (): number {
+  toEpiweek (): Epiweek {
     return this.year * 100 + this.week
   }
 
   /**
    * Set values using epiweek stamp
    */
-  fromEpiweek (epiweek: number) {
+  fromEpiweek (epiweek: Epiweek) {
     this.year = Math.floor(epiweek / 100)
     this.week = epiweek % 100
     this.day = 1
