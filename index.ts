@@ -6,7 +6,7 @@
  * Doc guard
  */
 import * as moment from 'moment'
-import * as memoize from 'fast-memoize'
+import moize from 'moize'
 
 /**
  * Epiweek in format yyyyww
@@ -16,7 +16,7 @@ export type Epiweek = number
 /**
  * Memoized function for number of MMWR weeks in a year
  */
-const weeksInYear = memoize(function(year: number): number {
+const weeksInYear = moize(function(year: number): number {
   let md = new MMWRDate(year, 1)
   let ed = new MMWRDate(year, 53)
   ed.fromMomentDate(ed.toMomentDate())
