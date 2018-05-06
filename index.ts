@@ -39,6 +39,20 @@ export class MMWRDate {
   }
 
   /**
+   * Return plain JS date representation
+   */
+  toJSDate (): Date {
+    return this.toMomentDate().toDate()
+  }
+
+  /**
+   * Set values using given JS date. Defaults to now.
+   */
+  fromJSDate (date = (new Date())) {
+    this.fromMomentDate(moment(date))
+  }
+
+  /**
    * Return a moment representation of the date
    */
   toMomentDate (): moment.Moment {
