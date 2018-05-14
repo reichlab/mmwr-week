@@ -939,6 +939,14 @@ img { max-width: 100%; }
 → mdate.fromMomentDate(moment(<span class="hljs-string">'2016-12-27'</span>))
 <span class="hljs-comment">// returns nothing, mutates mdate to MMWRDate { year: 2016, week: 52, day: 3 }</span>
 
+<span class="hljs-comment">// Convert to JS Date</span>
+→ mdate.toJSDate()
+<span class="hljs-comment">// returns 2016-12-27T05:00:00.000Z</span>
+
+<span class="hljs-comment">// JS Date to MMWRDate</span>
+→ mdate.fromJSDate(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">'2016-12-27T05:00:00.000Z'</span>))
+<span class="hljs-comment">// returns nothing, mutates mdate</span>
+
 <span class="hljs-comment">// Convert to epiweek</span>
 → mdate.toEpiweek()
 <span class="hljs-comment">// returns 201652</span>

@@ -28,6 +28,14 @@ npm install mmwr-week
 → mdate.fromMomentDate(moment('2016-12-27'))
 // returns nothing, mutates mdate to MMWRDate { year: 2016, week: 52, day: 3 }
 
+// Convert to JS Date
+→ mdate.toJSDate()
+// returns 2016-12-27T05:00:00.000Z
+
+// JS Date to MMWRDate
+→ mdate.fromJSDate(new Date('2016-12-27T05:00:00.000Z'))
+// returns nothing, mutates mdate
+
 // Convert to epiweek
 → mdate.toEpiweek()
 // returns 201652
